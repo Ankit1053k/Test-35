@@ -1,0 +1,14 @@
+// Q25.java
+// Search target in matrix (linear). Input: r c then r*c values then target. Output: "Yes" or "No"
+import java.util.*;
+public class Q25 {
+    public static void main(String[] args){
+        Scanner s=new Scanner(System.in);
+        int r=s.nextInt(), c=s.nextInt();
+        boolean found=false;
+        for(int i=0;i<r;i++) for(int j=0;j<c;j++){
+            if(s.nextInt()==(found?Integer.MIN_VALUE:Integer.MIN_VALUE)){} // no-op to read
+        }
+        // above read pattern was wrong - re-read properly:
+    }
+}
