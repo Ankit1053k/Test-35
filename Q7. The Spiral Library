@@ -1,0 +1,28 @@
+// Q7.java
+// Spiral order of matrix. Input: r c then r*c integers row-wise. Output: elements in spiral order space-separated.
+import java.util.*;
+public class Q7 {
+    public static void main(String[] args){
+        Scanner s=new Scanner(System.in);
+        int r=s.nextInt(), c=s.nextInt();
+        int[][] a=new int[r][c];
+        for(int i=0;i<r;i++) for(int j=0;j<c;j++) a[i][j]=s.nextInt();
+        int top=0, left=0, bottom=r-1, right=c-1;
+        List<Integer> ans=new ArrayList<>();
+        while(top<=bottom && left<=right){
+            for(int j=left;j<=right;j++) ans.add(a[top][j]);
+            top++;
+            for(int i=top;i<=bottom;i++) ans.add(a[i][right]);
+            right--;
+            if(top<=bottom){
+                for(int j=right;j>=left;j--) ans.add(a[bottom][j]);
+                bottom--;
+            }
+            if(left<=right){
+                for(int i=bottom;i>=top;i--) ans.add(a[i][left]);
+                left++;
+            }
+        }
+        System.out.println(ans.toString().replaceAll("\\s+",""));
+    }
+}
