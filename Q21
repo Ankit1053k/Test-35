@@ -1,0 +1,18 @@
+// Q21.java
+// Lower bound: first index with element >= target. Input: n arr target. Output: index (if > n-1 print n)
+import java.util.*;
+public class Q21 {
+    public static void main(String[] args){
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt(); int[] a=new int[n];
+        for(int i=0;i<n;i++) a[i]=s.nextInt();
+        int t=s.nextInt();
+        int l=0,r=n;
+        while(l<r){
+            int m=(l+r)/2;
+            if(a[m]>=t) r=m;
+            else l=m+1;
+        }
+        System.out.println(l);
+    }
+}
