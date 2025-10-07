@@ -1,0 +1,22 @@
+// Q10.java
+// Count ponds (connected components of 1's). Input: r c then grid with 1/0. Output: count
+import java.util.*;
+public class Q10 {
+    static int R,C;
+    static int[][] g;
+    static boolean[][] vis;
+    public static void main(String[] args){
+        Scanner s=new Scanner(System.in);
+        R=s.nextInt(); C=s.nextInt();
+        g=new int[R][C]; vis=new boolean[R][C];
+        for(int i=0;i<R;i++) for(int j=0;j<C;j++) g[i][j]=s.nextInt();
+        int cnt=0;
+        for(int i=0;i<R;i++) for(int j=0;j<C;j++) if(!vis[i][j] && g[i][j]==1){ dfs(i,j); cnt++; }
+        System.out.println(cnt);
+    }
+    static void dfs(int i,int j){
+        if(i<0||j<0||i>=R||j>=C||vis[i][j]||g[i][j]==0) return;
+        vis[i][j]=true;
+        for(int di=-1;di<=1;di++) for(int dj=-1;dj<=1;dj++) if(!(di==0&&dj==0)) dfs(i+di,j+dj);
+    }
+}
