@@ -1,0 +1,27 @@
+// Q9.java
+// Path existence in binary grid (0=free,1=blocked). Input: r c then r*c grid. Output: true/false
+import java.util.*;
+public class Q9 {
+    public static void main(String[] args){
+        Scanner s=new Scanner(System.in);
+        int r=s.nextInt(), c=s.nextInt();
+        int[][] g=new int[r][c];
+        for(int i=0;i<r;i++) for(int j=0;j<c;j++) g[i][j]=s.nextInt();
+        boolean[][] vis=new boolean[r][c];
+        boolean ok=false;
+        Deque<int[]> dq=new ArrayDeque<>();
+        if(g[0][0]==0){ dq.add(new int[]{0,0}); vis[0][0]=true; }
+        int[][] dirs={{1,0},{-1,0},{0,1},{0,-1}};
+        while(!dq.isEmpty()){
+            int[] p=dq.poll();
+            if(p[0]==r-1 && p[1]==c-1){ ok=true; break; }
+            for(int[] d:dirs){
+                int ni=p[0]+d[0], nj=p[1]+d[1];
+                if(ni>=0 && ni<r && nj>=0 && nj<c && !vis[ni][nj] && g[ni][nj]==0){
+                    vis[ni][nj]=true; dq.add(new int[]{ni,nj});
+                }
+            }
+        }
+        System.out.println(ok);
+    }
+}
