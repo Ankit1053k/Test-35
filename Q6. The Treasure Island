@@ -1,0 +1,17 @@
+// Q6.java
+// Max sum row. Input: r c then r*c integers row-wise. Output: index of row with max sum (0-based) and sum.
+// Example prints: "Row 2 (sum=24)" to match example (0-based index used in code prints actual index).
+import java.util.*;
+public class Q6 {
+    public static void main(String[] args){
+        Scanner s=new Scanner(System.in);
+        int r=s.nextInt(), c=s.nextInt();
+        long bestSum=Long.MIN_VALUE; int bestIdx=-1;
+        for(int i=0;i<r;i++){
+            long sum=0;
+            for(int j=0;j<c;j++) sum += s.nextLong();
+            if(sum>bestSum){ bestSum=sum; bestIdx=i; }
+        }
+        System.out.println("Row "+bestIdx+" (sum="+bestSum+")");
+    }
+}
