@@ -1,0 +1,22 @@
+// Q3.java
+// Two-sum. Input: n, n integers, target. Output: two indices (0-based) separated by space (first found).
+import java.util.*;
+public class Q3 {
+    public static void main(String[] args){
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        int[] a=new int[n];
+        for(int i=0;i<n;i++) a[i]=s.nextInt();
+        int target=s.nextInt();
+        Map<Integer,Integer> m=new HashMap<>();
+        for(int i=0;i<n;i++){
+            int need = target - a[i];
+            if(m.containsKey(need)){
+                System.out.println(m.get(need)+" "+i);
+                return;
+            }
+            m.put(a[i], i);
+        }
+        System.out.println("-1 -1");
+    }
+}
