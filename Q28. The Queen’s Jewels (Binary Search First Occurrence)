@@ -1,0 +1,18 @@
+// Q28.java
+// First occurrence in 2D sorted rows: find first position of x. Input: r c then matrix then target. Output: (i,j) of first occurrence else (-1,-1).
+import java.util.*;
+public class Q28 {
+    public static void main(String[] args){
+        Scanner s=new Scanner(System.in);
+        int r=s.nextInt(), c=s.nextInt();
+        int[][] m=new int[r][c];
+        for(int i=0;i<r;i++) for(int j=0;j<c;j++) m[i][j]=s.nextInt();
+        int target=s.nextInt();
+        int bi=-1,bj=-1;
+        for(int i=0;i<r;i++) for(int j=0;j<c;j++) if(m[i][j]==target){
+            if(bi==-1 || i<bi || (i==bi && j<bj)){ bi=i; bj=j; }
+        }
+        if(bi==-1) System.out.println("(-1,-1)");
+        else System.out.println("("+bi+","+bj+")");
+    }
+}
