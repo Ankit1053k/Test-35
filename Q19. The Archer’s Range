@@ -1,0 +1,18 @@
+// Q19.java
+// First occurrence of key. Input: n arr key. Output: index or -1
+import java.util.*;
+public class Q19 {
+    public static void main(String[] args){
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt(); int[] a=new int[n];
+        for(int i=0;i<n;i++) a[i]=s.nextInt();
+        int key=s.nextInt();
+        int l=0,r=n-1,ans=-1;
+        while(l<=r){
+            int m=(l+r)/2;
+            if(a[m]>=key){ if(a[m]==key) ans=m; r=m-1; }
+            else l=m+1;
+        }
+        System.out.println(ans);
+    }
+}
