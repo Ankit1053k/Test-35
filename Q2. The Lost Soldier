@@ -1,0 +1,14 @@
+// Q2.java
+// Input: n (max number), then n numbers (size n) containing 0..n with one missing.
+// Example: n=5 then array length 5 with numbers [0,1,2,4,5] -> prints missing number.
+import java.util.*;
+public class Q2 {
+    public static void main(String[] args){
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        long xor=0;
+        for(int i=0;i<=n;i++) xor ^= i;
+        for(int i=0;i<n;i++) xor ^= s.nextInt();
+        System.out.println(xor);
+    }
+}
