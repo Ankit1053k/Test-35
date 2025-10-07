@@ -1,0 +1,15 @@
+// Q12.java
+// Staircase ways (1 or 2 steps). Input: n. Output: number of ways (Fibonacci style).
+import java.util.*;
+public class Q12 {
+    public static void main(String[] args){
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        if(n==0){ System.out.println(1); return; }
+        long a=1,b=1;
+        for(int i=2;i<=n;i++){
+            long c=a+b; a=b; b=c;
+        }
+        System.out.println(b);
+    }
+}
